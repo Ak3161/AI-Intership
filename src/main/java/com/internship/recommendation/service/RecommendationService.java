@@ -11,8 +11,6 @@ import com.internship.recommendation.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,7 +36,6 @@ public class RecommendationService {
     private double minScore;
 
     @Transactional
-    @CacheEvict(value = "recommendations", key = "#dto.email")
     public List<RecommendationResponseDTO> generateRecommendations(ProfileSubmissionDTO dto) {
 
         Student student = profileService.saveProfile(dto);
@@ -78,7 +75,6 @@ public class RecommendationService {
                 .toList();
     }
 
-    @Cacheable(value = "recommendations", key = "#studentId")
     @Transactional(readOnly = true)
     public List<RecommendationResponseDTO> getRecommendationsForStudent(Long studentId) {
         if (!studentRepository.existsById(studentId)) {
