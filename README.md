@@ -201,10 +201,17 @@ graph TD
     API -->|"8. Evict Cache"| Cache[("Redis Cache")]
     API -->|"9. Return JSON"| Client
     
+<<<<<<< HEAD
     Client -->|"A. GET /api/v1/recommendations/[id]"| API2["Fetch Cache API"]
     API2 -->|"B. Check Cache"| Cache
     Cache -.->|"C. Cache Miss"| DB
     Cache -->|"D. Cache Hit"| Client
+=======
+    Client -->|A. GET /api/v1/recommendations/{studentId}| API2["Fetch Cache API"]
+    API2 -->|B. Check Cache| Cache
+    Cache -.->|C. Cache Miss| DB
+    Cache -->|D. Cache Hit| Client
+>>>>>>> f0f76fe08bafc026f1ac86369e990f3c95dbb6f7
 ```
 
 ---
