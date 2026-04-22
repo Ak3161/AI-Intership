@@ -191,20 +191,20 @@ The `ScoringServiceTest` covers 7 scenarios:
 
 ```mermaid
 graph TD
-    Client((Client)) -->|1. POST /api/v1/recommendations/generate| API[Recommendation API]
-    API -->|2. Save Profile| DB[(MySQL DB)]
-    API -->|3. Fetch Active Internships| DB
-    API -->|4. Pure Java Scoring| Engine[Scoring Engine]
-    Engine -->|5. Filter Top 5 >= 20 pts| API
-    API -->|6. Generate Explanations| LLaMA[NVIDIA LLaMA 3.1]
-    API -->|7. Save Results| DB
-    API -->|8. Evict Cache| Cache[(Redis Cache)]
-    API -->|9. Return JSON| Client
+    Client(("Client")) -->|"1. POST /api/v1/recommendations/generate"| API["Recommendation API"]
+    API -->|"2. Save Profile"| DB[("MySQL DB")]
+    API -->|"3. Fetch Active Internships"| DB
+    API -->|"4. Pure Java Scoring"| Engine["Scoring Engine"]
+    Engine -->|"5. Filter Top 5 >= 20 pts"| API
+    API -->|"6. Generate Explanations"| LLaMA["NVIDIA LLaMA 3.1"]
+    API -->|"7. Save Results"| DB
+    API -->|"8. Evict Cache"| Cache[("Redis Cache")]
+    API -->|"9. Return JSON"| Client
     
-    Client -->|A. GET /api/v1/recommendations/{id}| API2[Fetch Cache API]
-    API2 -->|B. Check Cache| Cache
-    Cache -.->|C. Cache Miss| DB
-    Cache -->|D. Cache Hit| Client
+    Client -->|"A. GET /api/v1/recommendations/[id]"| API2["Fetch Cache API"]
+    API2 -->|"B. Check Cache"| Cache
+    Cache -.->|"C. Cache Miss"| DB
+    Cache -->|"D. Cache Hit"| Client
 ```
 
 ---
