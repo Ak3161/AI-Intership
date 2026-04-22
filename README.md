@@ -1,6 +1,6 @@
 # AI-Based Internship Recommendation Engine
 
-A **Spring Boot 3.2.5 + Java 21** backend that combines rule-based scoring with **NVIDIA NIM API (LLaMA 3.1)** to deliver personalized internship recommendations.
+A **Spring Boot 3.2.5 + Java 21 backend that combines rule-based scoring with **NVIDIA NIM API (LLaMA 3.1)** to deliver personalized internship recommendations.
 
 ## Tech Stack
 
